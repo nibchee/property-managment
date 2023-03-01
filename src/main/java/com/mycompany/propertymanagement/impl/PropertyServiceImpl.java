@@ -34,7 +34,7 @@ public class PropertyServiceImpl implements PropertyService {
         //it goes to database & fecth all
         //as it returns Iterbale type so type cast it
         List<PropertyEntity>  listOfProps = (List<PropertyEntity>)propertyRepository.findAll();
-
+//Nirbhay
         List<PropertyDTO> propList=new ArrayList<>();
         for(PropertyEntity pe:listOfProps){
           PropertyDTO dto=propertyConverter.convertEntityToDTO(pe);
