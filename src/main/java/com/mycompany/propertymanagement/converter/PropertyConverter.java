@@ -7,29 +7,27 @@ import org.springframework.stereotype.Component;
 @Component
 public class PropertyConverter {
 
-public PropertyEntity convertDTOtoEntity(PropertyDTO propertyDTO){
-    PropertyEntity pe=new PropertyEntity();
-    pe.setTitle(propertyDTO.getTitle());
-    pe.setAddress(propertyDTO.getAddress());
-    pe.setOwnerEmail(propertyDTO.getOwnerEmail());
-    pe.setDescription(propertyDTO.getDescription());
-    pe.setOwnerName(propertyDTO.getOwnerName());
-    pe.setPrice(propertyDTO.getPrice());
-return pe;
-}
+    public PropertyEntity convertDTOtoEntity(PropertyDTO propertyDTO){
 
-public PropertyDTO convertEntityToDTO(PropertyEntity propertyEntity){
-     PropertyDTO propertyDTO=new PropertyDTO();
-     propertyDTO.setId(propertyEntity.getId());
-    propertyDTO.setTitle(propertyEntity.getTitle());
-    propertyDTO.setAddress(propertyEntity.getAddress());
-    propertyDTO.setOwnerEmail(propertyEntity.getOwnerEmail());
-    propertyDTO.setDescription(propertyEntity.getDescription());
-    propertyDTO.setOwnerName(propertyEntity.getOwnerName());
-    propertyDTO.setPrice(propertyEntity.getPrice());
+        PropertyEntity pe = new PropertyEntity();
+        pe.setTitle(propertyDTO.getTitle());
+        pe.setAddress(propertyDTO.getAddress());
+        pe.setPrice(propertyDTO.getPrice());
+        pe.setDescription(propertyDTO.getDescription());
 
-    return propertyDTO;
+        return pe;
+    }
 
-}
+    public PropertyDTO convertEntityToDTO(PropertyEntity propertyEntity){
 
+        PropertyDTO propertyDTO =  new PropertyDTO();
+        propertyDTO.setId(propertyEntity.getId());
+        propertyDTO.setTitle(propertyEntity.getTitle());
+        propertyDTO.setAddress(propertyEntity.getAddress());
+        propertyDTO.setPrice(propertyEntity.getPrice());
+        propertyDTO.setDescription(propertyEntity.getDescription());
+        propertyDTO.setUserId(propertyEntity.getUserEntity().getId());
+
+        return propertyDTO;
+    }
 }
